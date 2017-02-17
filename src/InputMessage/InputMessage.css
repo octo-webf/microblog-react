@@ -1,0 +1,12 @@
+.container {
+  border-radius: 3px 3px 0 0;
+  background-color: #E8F5FD;
+  padding: 10px 12px;
+  border: 1px solid #e1e8ed;
+}
+
+.input {
+  width: 100%;
+  line-height: 2em;
+  border: none;
+}

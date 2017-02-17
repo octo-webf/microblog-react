@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "mocha": true
+  },
+
+  "globals": {
+    "React": true
+  },
+
+  "plugins": [
+    "react"
+  ],
+
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+  }
+}

@@ -1,0 +1,17 @@
+.item {
+  border-bottom: 1px solid #e1e8ed;
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.author {
+  font-size: 13px;
+  color: #333;
+  font-weight: bold;
+}
+
+.content {
+  font-size: 14px;
+  line-height: 18px;
+}
