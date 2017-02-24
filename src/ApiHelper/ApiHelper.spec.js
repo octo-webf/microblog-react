@@ -1,15 +1,15 @@
-import { expect } from 'chai'
-import fetchMock from 'fetch-mock'
-import { fetchMessages, postMessage } from './ApiHelper'
+import {expect} from "chai";
+import fetchMock from "fetch-mock";
+import {fetchMessages, postMessage} from "./ApiHelper";
 
 const messages = [
-  { id: 'abcd', content: 'fakeContent', author: 'fakeAuthor' }
+  {id: 'abcd', content: 'fakeContent', author: 'fakeAuthor'}
 ]
 
 describe('ApiHelper component', () => {
-  describe('when the query is successful', () => {
+  describe('getMessage when the query is successful', () => {
     beforeEach(() => (
-      fetchMock.get('https://skool-microblog.herokuapp.com/messages', messages)
+      fetchMock.get('http://microblog-api.herokuapp.com/api/messages', messages)
     ))
 
     afterEach(fetchMock.restore)
@@ -24,9 +24,11 @@ describe('ApiHelper component', () => {
   })
 
   describe('postMessage', () => {
+
     describe('when the query is successful', () => {
       beforeEach(() => (
-        fetchMock.post('https://skool-microblog.herokuapp.com/messages', {})
+
+        fetchMock.post('http://microblog-api.herokuapp.com/api/messages', {})
       ))
 
       afterEach(fetchMock.restore)
@@ -43,7 +45,18 @@ describe('ApiHelper component', () => {
             expect(fetchMock.calls().matched[0][1].body).to.equal(JSON.stringify(body))
           })
       })
-    })
-  });
 
+      it('should post with headers application/json', () => {
+        const body = {
+          author: 'toto',
+          content: 'kikoo'
+        }
+
+        return postMessage(body)
+          .then(() => {
+            expect(fetchMock.calls().matched[0][1].headers['Content-Type']).to.equal('application/json')
+          })
+      })
+    })
+  })
 })

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import InputMessage from '../InputMessage/InputMessage'
+import Login from '../Login/Login'
 import MessageList from '../MessageList/MessagesList';
 import {app, messageBox} from './App.css'
 import { fetchMessages } from '../ApiHelper/ApiHelper'
@@ -25,8 +26,8 @@ class App extends Component {
   render() {
     return (
       <div className={app}>
+        <Login/>
         <div className={messageBox}>
-          {/*{this.children}*/}
           <InputMessage onEnter={() => this.refresh()}/>
           <MessageList messages={this.state.messages}/>
           <Link to="/about">about</Link>

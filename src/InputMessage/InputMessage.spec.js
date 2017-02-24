@@ -32,7 +32,8 @@ describe('InputMessage component', () => {
     let spyApiHelperPostMessage
 
     beforeEach(() => {
-      spyApiHelperPostMessage = sinon.stub(ApiHelper, 'postMessage').returns(Promise.resolve())
+      spyApiHelperPostMessage = sinon.stub(ApiHelper, 'postMessage')
+        .returns(Promise.resolve())
     })
 
     afterEach(() => {
@@ -66,7 +67,8 @@ describe('InputMessage component', () => {
 
         // then
         sinon.assert.calledOnce(spyApiHelperPostMessage)
-        sinon.assert.calledWith(spyApiHelperPostMessage, {author: 'John Smith', content: 'My new message'})
+        sinon.assert.calledWith(spyApiHelperPostMessage,
+          {author: 'John Smith', content: 'My new message'})
         expect(wrapper.state('inputValue')).to.equal('')
       })
 

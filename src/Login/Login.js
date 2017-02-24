@@ -1,8 +1,7 @@
 import React, {Component} from "react";
-import {postMessage} from "../ApiHelper/ApiHelper";
-import {input, inputMessage, inputMessage__content} from "./InputMessage.css";
+import {} from "./Login.css";
 
-class InputMessage extends Component {
+class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {inputValue: ''}
@@ -10,13 +9,14 @@ class InputMessage extends Component {
 
   onEnter({key}) {
     if (key === 'Enter') {
-      postMessage({
-        author: 'John Smith',
-        content: this.state.inputValue
-      })
-        .then(() => {
-          this.props.onEnter()
-        })
+      window.localStorage.setItem('name', this.state.inputValue)
+      // postName({
+      //   author: 'John Smith',
+      //   content: this.state.inputValue
+      // })
+       // .then(() => {
+        //  this.props.onEnter()
+        //})
       this.setState({inputValue: ''})
     }
   }
@@ -27,10 +27,8 @@ class InputMessage extends Component {
 
   render() {
     return (
-      <div className={inputMessage}>
+      <div>
         <input
-          className={inputMessage__content}
-          placeholder='Quoi de neuf ?'
           value={ this.state.inputValue }
           onChange={ (event) => this.onChange(event) }
           onKeyPress={ (event) => this.onEnter(event) }
@@ -40,4 +38,4 @@ class InputMessage extends Component {
   }
 }
 
-export default InputMessage;
+export default Login;
