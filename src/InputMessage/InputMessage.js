@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {postMessage} from '../ApiHelper/ApiHelper'
-import {container, input} from './InputMessage.css'
+import React, {Component} from "react";
+import {postMessage} from "../ApiHelper/ApiHelper";
+import {input, inputMessage, inputMessage__content} from "./InputMessage.css";
 
 class InputMessage extends Component {
   constructor(props) {
@@ -27,15 +27,14 @@ class InputMessage extends Component {
 
   render() {
     return (
-      <div className={ container }>
+      <div className={inputMessage}>
         <input
-          className={ input }
+          className={inputMessage__content}
           value={ this.state.inputValue }
           onChange={ (event) => this.onChange(event) }
           onKeyPress={ (event) => this.onEnter(event) }
         />
       </div>
-
     )
   }
 }

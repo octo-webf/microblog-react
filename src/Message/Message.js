@@ -1,15 +1,15 @@
 import React from 'react';
-import { item, author, content } from './Message.css'
+import { message, message__author, message__content } from './Message.css'
 
 const Message = (props) => (
-  <li className={ item }>
-    <div className={ author }>
+  <div className={ message }>
+    <div className={ message__author }>
       { props.message.author }
     </div>
-    <div className={ content }>
+    <div className={ message__content }>
       { props.message.content }
     </div>
-  </li>
+  </div>
 );
 
 export default Message;

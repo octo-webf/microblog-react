@@ -1,12 +1,26 @@
-.container {
-  border-radius: 3px 3px 0 0;
-  background-color: #E8F5FD;
-  padding: 10px 12px;
-  border: 1px solid #e1e8ed;
+input {
+  font-size: 14px;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #666;
+  padding: 4px 14px;
+  border: 1px solid #99CDE1;
 }
 
-.input {
+.inputMessage {
+  border: 1px solid #e1e8ed;
+  background-color: #E5F2F7;
+  padding: 10px;
+}
+
+.inputMessage__content {
   width: 100%;
-  line-height: 2em;
-  border: none;
+  box-sizing : border-box;
+  padding: 8px 10px;
+  border: 1px solid #99CDE1;
+}
+
+.inputMessage__content:focus {
+  border-color: #56b4ef;
 }

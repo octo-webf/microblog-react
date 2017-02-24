@@ -3,7 +3,7 @@ import {expect} from "chai";
 import {shallow} from "enzyme";
 import sinon from "sinon";
 import App from "./App";
-import MessageList from "../MessageList/MessageList";
+import MessageList from "../MessageList/MessagesList";
 import InputMessage from "../InputMessage/InputMessage";
 import * as ApiHelper from "../ApiHelper/ApiHelper";
 

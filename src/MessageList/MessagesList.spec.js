@@ -1,7 +1,7 @@
 import React from 'react'
 import {expect} from 'chai'
 import {shallow} from 'enzyme'
-import MessageList from './MessageList'
+import MessageList from './MessagesList'
 import Message from '../Message/Message'
 
 const fakeMessage1 = {id: '123', content: 'fakeContent1', author: 'fakeAuthor1'}

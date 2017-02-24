@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import InputMessage from '../InputMessage/InputMessage'
-import MessageList from '../MessageList/MessageList';
-import {container, messageBox} from './App.css'
+import MessageList from '../MessageList/MessagesList';
+import {app, messageBox} from './App.css'
 import { fetchMessages } from '../ApiHelper/ApiHelper'
 import { Router, Route, Link } from 'react-router'
 
@@ -24,7 +24,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className={container}>
+      <div className={app}>
         <div className={messageBox}>
           {/*{this.children}*/}
           <InputMessage onEnter={() => this.refresh()}/>

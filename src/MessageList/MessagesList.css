@@ -1,0 +1,18 @@
+.messages {
+  background-color: #ffffff;
+}
+
+.messages__ul {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #e1e8ed;
+  border-top: none;
+  border-bottom: none;
+
+}
+
+.messages__li {
+  list-style-type: none;
+  padding: 0;
+  border-bottom: 1px solid #e1e8ed;
+}
