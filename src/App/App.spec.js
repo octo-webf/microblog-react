@@ -44,11 +44,17 @@ describe('App component', () => {
   })
 
   it('should render NavigationBar', () => {
-    ApiHelper.fetchMessages.returns(Promise.resolve(fakeMessages))
     const wrapper = shallow(<App />)
 
     let navigationBar = wrapper.find(NavigationBar);
     expect(navigationBar).to.have.length(1)
+  })
+
+  it('should render Footer', () => {
+    const wrapper = shallow(<App />)
+
+    let footer = wrapper.find(Footer);
+    expect(footer).to.have.length(1)
   })
 
   describe('on component will mount', () => {
