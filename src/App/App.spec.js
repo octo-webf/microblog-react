@@ -4,6 +4,7 @@ import {shallow} from "enzyme";
 import sinon from "sinon";
 import App from "./App";
 import MessageList from "../MessageList/MessagesList";
+import NavigationBar from "../NavigationBar/NavigationBar";
 import InputMessage from "../InputMessage/InputMessage";
 import * as ApiHelper from "../ApiHelper/ApiHelper";
 
@@ -40,7 +41,14 @@ describe('App component', () => {
 
     let inputMessage = wrapper.find(InputMessage);
     expect(inputMessage).to.have.length(1)
-    // expect(inputMessage.prop("onEnter")).isIntanceOf(function)
+  })
+
+  it('should render NavigationBar', () => {
+    ApiHelper.fetchMessages.returns(Promise.resolve(fakeMessages))
+    const wrapper = shallow(<App />)
+
+    let navigationBar = wrapper.find(NavigationBar);
+    expect(navigationBar).to.have.length(1)
   })
 
   describe('on component will mount', () => {
