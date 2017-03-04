@@ -3,6 +3,7 @@ import {expect} from "chai";
 import {shallow} from "enzyme";
 import sinon from "sinon";
 import App from "./App";
+import Footer from "../Footer/Footer";
 import MessageList from "../MessageList/MessagesList";
 import NavigationBar from "../NavigationBar/NavigationBar";
 import InputMessage from "../InputMessage/InputMessage";
@@ -44,6 +45,7 @@ describe('App component', () => {
   })
 
   it('should render NavigationBar', () => {
+    ApiHelper.fetchMessages.returns(Promise.resolve(fakeMessages))
     const wrapper = shallow(<App />)
 
     let navigationBar = wrapper.find(NavigationBar);
@@ -51,6 +53,7 @@ describe('App component', () => {
   })
 
   it('should render Footer', () => {
+    ApiHelper.fetchMessages.returns(Promise.resolve(fakeMessages))
     const wrapper = shallow(<App />)
 
     let footer = wrapper.find(Footer);

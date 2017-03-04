@@ -1,15 +1,14 @@
-import React, {Component} from 'react';
-import InputMessage from '../InputMessage/InputMessage'
-import Login from '../Login/Login'
-import Footer from '../Footer/Footer'
-import NavigationBar from '../NavigationBar/NavigationBar'
-import MessageList from '../MessageList/MessagesList';
-import {app, messageBox} from './App.css'
-import { fetchMessages } from '../ApiHelper/ApiHelper'
-import { Router, Route, Link } from 'react-router'
+import React, {Component} from "react";
+import InputMessage from "../InputMessage/InputMessage";
+import Login from "../Login/Login";
+import Footer from "../Footer/Footer";
+import NavigationBar from "../NavigationBar/NavigationBar";
+import MessageList from "../MessageList/MessagesList";
+import {app, messageBox} from "./App.css";
+import {fetchMessages} from "../ApiHelper/ApiHelper";
 
-const navigationLink1 = { id: 'abcd', url: '/#', icon: 'homeIcon',  label: 'Accueil' }
-const navigationLink2 = { id: 'abcd2', url: '/#about', icon: 'icon',  label: 'A propos' }
+const navigationLink1 = {id: 'abcd', url: '/#', icon: 'homeIcon', label: 'Accueil'}
+const navigationLink2 = {id: 'abcd2', url: '/#about', icon: 'icon', label: 'A propos'}
 
 const navigationLinks = [
   navigationLink1,
@@ -39,12 +38,12 @@ class App extends Component {
     return (
       <div className={app}>
         <NavigationBar navigationLinks={this.state.navigationLinks}/>
+        <Login/>
         <div className={messageBox}>
           <InputMessage onEnter={() => this.refresh()}/>
           <MessageList messages={this.state.messages}/>
           <Footer/>
         </div>
-        <Login/>
       </div>
     )
   }

@@ -14,8 +14,8 @@ describe('Footer component', () => {
         const wrapper = shallow(<Footer/>)
 
         expect(wrapper.find(FooterLink)).to.have.length(2)
-        expect(wrapper.contains(<Footer footer_link={webf_link}/>)).to.be.true
-        expect(wrapper.contains(<Footer footer_link={octo_link}/>)).to.be.true
+        expect(wrapper.contains(<FooterLink footer_link={webf_link}/>)).to.be.true
+        expect(wrapper.contains(<FooterLink footer_link={octo_link}/>)).to.be.true
       })
     })
   })
