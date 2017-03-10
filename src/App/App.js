@@ -7,21 +7,12 @@ import MessageList from "../MessageList/MessagesList";
 import {app, messageBox} from "./App.css";
 import {fetchMessages} from "../ApiHelper/ApiHelper";
 
-const navigationLink1 = {id: 'abcd', url: '/#', icon: 'homeIcon', label: 'Accueil'}
-const navigationLink2 = {id: 'abcd2', url: '/#about', icon: 'icon', label: 'A propos'}
-
-const navigationLinks = [
-  navigationLink1,
-  navigationLink2
-]
-
 class App extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
       messages: [],
-      navigationLinks: navigationLinks
     }
   }
 
@@ -37,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className={app}>
-        <NavigationBar navigationLinks={this.state.navigationLinks}/>
+        <NavigationBar/>
         <Login/>
         <div className={messageBox}>
           <InputMessage onEnter={() => this.refresh()}/>
