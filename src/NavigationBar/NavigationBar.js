@@ -4,7 +4,7 @@ import {
   navigationBar,
   navigationBar__inner,
   navigationBar__brand,
-  navigationBar__links,
+  navigationBar__link,
   navigationBar__ul,
   navigationBar__li
 } from "./NavigationBar.css";
@@ -14,8 +14,7 @@ const NavigationBar = (props) => {
     (
       <div className={ navigationBar }>
         <div className={ navigationBar__inner }>
-          <div className={ navigationBar__brand }></div>
-          <div className={ navigationBar__links }>
+          <div className={ navigationBar__link }>
             <ul className={ navigationBar__ul }>
               { props.navigationLinks.reverse()
                 .map(navigationLink =>
