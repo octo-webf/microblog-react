@@ -1,15 +1,22 @@
 import React from 'react';
-import { message, message__author, message__content } from './Message.css'
+import { message, messageAuthor, messageContent } from './Message.css';
 
-const Message = (props) => (
-  <div className={ message }>
-    <div className={ message__author }>
+const Message = props => (
+  <div className={message}>
+    <div className={messageAuthor}>
       { props.message.author }
     </div>
-    <div className={ message__content }>
+    <div className={messageContent}>
       { props.message.content }
     </div>
   </div>
 );
+
+Message.propTypes = {
+  message: React.PropTypes.shape({
+    author: React.PropTypes.string,
+    content: React.PropTypes.string,
+  }).isRequired,
+};
 
 export default Message;

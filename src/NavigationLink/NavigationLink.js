@@ -1,14 +1,20 @@
-import React from "react";
-import FontAwesome from "react-fontawesome";
-import {navigationLink, navigationLink__icon, navigationLink__link, navigationLink__label} from "./NavigationLink.css";
+import React from 'react';
+import FontAwesome from 'react-fontawesome';
+import { navigationLink, navigationLinkIcon, navigationLinkLink, navigationLinkLabel } from './NavigationLink.css';
 
-const NavigationLink = (props) => (
+const NavigationLink = props => (
   <div className={navigationLink}>
-    <a href={ props.url } className={navigationLink__link}>
-      <FontAwesome name={ props.icon } size="2x" className={navigationLink__icon}/>
-      <span className={navigationLink__label}>{ props.label }</span>
+    <a href={props.url} className={navigationLinkLink}>
+      <FontAwesome name={props.icon} size="2x" className={navigationLinkIcon} />
+      <span className={navigationLinkLabel}>{ props.label }</span>
     </a>
   </div>
 );
+
+NavigationLink.propTypes = {
+  url: React.PropTypes.string.isRequired,
+  icon: React.PropTypes.string.isRequired,
+  label: React.PropTypes.string.isRequired,
+};
 
 export default NavigationLink;

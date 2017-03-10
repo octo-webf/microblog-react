@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-.loginHeader__logo {
+.loginHeaderLogo {
     background-color: #ffffff;
     box-sizing: border-box;
     width: 100px;
@@ -24,15 +24,15 @@
     margin-top: -50px;
 }
 
-.loginHeader__logo-image {
+.loginHeaderLogoImage {
     width: 80px;
 }
 
-.loginBody__description {
+.loginBodyDescription {
     padding: 6px 20px;
 }
 
-.loginBody__form {
+.loginBodyForm {
     text-align: center;
     padding: 20px 20px 40px;
     border-top: 1px solid #eee;

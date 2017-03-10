@@ -13,13 +13,13 @@
     justify-content: center;
 }
 
-.navigationBar__ul {
+.navigationBarUl {
     padding: 0;
     margin: 0;
     display: flex;
 }
 
-.navigationBar__li {
+.navigationBarLi {
     padding: 0;
     margin: 0;
     list-style-type: none;

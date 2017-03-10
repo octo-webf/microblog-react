@@ -4,11 +4,11 @@
   color: #292f33;
 }
 
-.message__author {
+.messageAuthor {
   display: block;
   font-weight: 600;
 }
 
-.message__content {
+.messageContent {
   display: block;
 }

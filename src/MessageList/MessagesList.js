@@ -1,21 +1,25 @@
-import React, {Component} from "react";
-import Message from "../Message/Message";
-import {messages, messages__ul, messages__li} from "./MessagesList.css";
+import React from 'react';
+import Message from '../Message/Message';
+import { messages, messagesUl, messagesLi } from './MessagesList.css';
 
-const MessagesList = (props) => {
-  return props.messages ?
+const MessagesList = props => props.messages ?
     (
-      <div className={ messages }>
-        <ul className={messages__ul}>
+      <div className={messages}>
+        <ul className={messagesUl}>
           { props.messages.reverse()
             .map(message =>
-              <li className={ messages__li }>
-                <Message key={message.id} message={message}/>
-              </li>) }
+              <li className={messagesLi}>
+                <Message key={message.id} message={message} />
+              </li>,
+            )
+          }
         </ul>
       </div>
     )
-    : null
-}
+    : null;
 
+
+MessagesList.propTypes = {
+  messages: React.PropTypes.arrayOf(React.PropTypes.shape()).isRequired,
+};
 export default MessagesList;

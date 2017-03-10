@@ -15,14 +15,14 @@
     display: flex;
 }
 
-.navigationLink-icon {
+.navigationLinkIcon {
     margin-left: 3px;
     margin-top: 13px;
     margin-right: 2px;
     font-size: 20px;
 }
 
-.navigationLink__link {
+.navigationLinkLink {
     text-align: center;
     height: 46px;
     border-bottom: 5px solid #0084b4;
@@ -45,7 +45,7 @@
     color: #0084B4;
 }
 
-.navigationLink__label {
+.navigationLinkLabel {
     margin-left: 3px;
     margin-top: 17px;
 }

@@ -1,66 +1,62 @@
-import React from "react";
-import {expect} from "chai";
-import {shallow} from "enzyme";
-import Login from "./Login";
-import sinon from 'sinon'
+import React from 'react';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
+import Login from './Login';
 
 describe('Login component', () => {
   describe('on render', () => {
     it('should render an input', () => {
-      const wrapper = shallow(<Login />)
+      const wrapper = shallow(<Login />);
 
-      expect(wrapper.find('input')).to.have.length(1)
-    })
-  })
+      expect(wrapper.find('input')).to.have.length(1);
+    });
+  });
 
   describe('on change', () => {
     it('should set state with input value', () => {
       // given
-      const wrapper = shallow(<Login />)
-      const input = wrapper.find('input')
+      const wrapper = shallow(<Login />);
+      const input = wrapper.find('input');
 
       // when
-      input.simulate('change', {target: {value: 'toto'}})
+      input.simulate('change', { target: { value: 'toto' } });
 
       // then
-      expect(wrapper.state('inputValue')).to.equal('toto')
-    })
-  })
+      expect(wrapper.state('inputValue')).to.equal('toto');
+    });
+  });
 
   describe('on key press', () => {
     describe('with a key different than enter', () => {
       beforeEach(() => {
-          window.localStorage.clear()
+        window.localStorage.clear();
       });
 
       it('should do nothing', () => {
         // given
-        const input = shallow(<Login />).find('input')
-        const notEnter = 0
+        const input = shallow(<Login />).find('input');
 
         // when
-        input.simulate('keyPress', {keyCode: 'notEnter'})
+        input.simulate('keyPress', { keyCode: 'notEnter' });
 
         // then
-        expect(window.localStorage.length).to.equal(0)
-
-      })
-    })
+        expect(window.localStorage.length).to.equal(0);
+      });
+    });
 
     describe('with enter', () => {
       it('should save name inside local Storage with value', () => {
         // given
-        const wrapper = shallow(<Login />)
-        wrapper.setState({inputValue: 'My name'})
-        const input = wrapper.find('input')
-        const Enter = 13
+        const wrapper = shallow(<Login />);
+        wrapper.setState({ inputValue: 'My name' });
+        const input = wrapper.find('input');
 
         // when
-        input.simulate('keyPress', {key: 'Enter'})
+        input.simulate('keyPress', { key: 'Enter' });
 
         // then
-        expect(window.localStorage.getItem('name')).to.equal('My name')
-      })
-    })
-  })
-})
+        expect(window.localStorage.getItem('name')).to.equal('My name');
+      });
+    });
+  });
+});
