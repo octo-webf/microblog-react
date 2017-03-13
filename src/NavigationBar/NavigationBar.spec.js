@@ -19,6 +19,7 @@ describe('NavigationBar component', () => {
         expect(wrapper.find(NavigationLink).at(0).prop('icon')).to.equal('home');
         expect(wrapper.find(NavigationLink).at(0).prop('url')).to.equal('/#');
         expect(wrapper.find(NavigationLink).at(0).prop('label')).to.equal('Accueil');
+        expect(wrapper.find(NavigationLink).at(0).prop('isActive')).to.equal('active');
       });
 
       it('should construct NavigationLink with about props', () => {
@@ -26,7 +27,8 @@ describe('NavigationBar component', () => {
 
         expect(wrapper.find(NavigationLink).at(1).prop('icon')).to.equal('info-circle');
         expect(wrapper.find(NavigationLink).at(1).prop('url')).to.equal('/#about');
-        expect(wrapper.find(NavigationLink).at(1).prop('label')).to.equal('A propos');
+        expect(wrapper.find(NavigationLink).at(1).prop('label')).to.equal('À propos');
+        expect(wrapper.find(NavigationLink).at(1).prop('isActive')).to.equal('');
       });
     });
   });

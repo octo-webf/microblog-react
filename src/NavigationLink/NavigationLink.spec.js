@@ -4,14 +4,14 @@ import { shallow } from 'enzyme';
 import FontAwesome from 'react-fontawesome';
 import NavigationLink from './NavigationLink';
 
-const navigationLink = { id: 'abcd', url: '/#', icon: 'info-circle', label: 'Accueil' };
+const navigationLink = { id: 'abcd', url: '/#', icon: 'info-circle', label: 'Accueil', isActive: 'active' };
 
 describe('NavigationLink component', () => {
   describe('on render', () => {
     it('should render the NavigationLink', () => {
       const wrapper = shallow(<NavigationLink {...navigationLink} />);
 
-      expect(wrapper.contains(navigationLink.url));
+      expect(wrapper.find('a').prop('href')).to.equal(navigationLink.url);
       expect(wrapper.contains(navigationLink.icon));
       expect(wrapper.text()).to.contain(navigationLink.label);
     });
@@ -26,6 +26,26 @@ describe('NavigationLink component', () => {
       const wrapper = shallow(<NavigationLink {...navigationLink} />);
 
       expect(wrapper.find(FontAwesome).prop('name')).to.equal('info-circle');
+    });
+
+    it('should set active into class when isActive is active', () => {
+      const wrapper = shallow(<NavigationLink {...navigationLink} />);
+
+      expect(wrapper.contains('navigationLinkLink'));
+      expect(wrapper.contains('active'));
+    });
+
+    it.only('should not set active when isActive is not active', () => {
+      const navigationLink = {
+        id: 'abcd',
+        url: '/#',
+        icon: 'info-circle',
+        label: 'Accueil',
+        isActive: '' };
+      const wrapper = shallow(<NavigationLink {...navigationLink} />);
+
+      expect(!wrapper.contains('active'));
+      expect(wrapper.contains('navigationLinkLink'));
     });
   });
 });
