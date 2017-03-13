@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import InputMessage from '../InputMessage/InputMessage';
-import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import MessageList from '../MessageList/MessagesList';
@@ -29,7 +28,6 @@ class App extends Component {
     return (
       <div className={app}>
         <NavigationBar />
-        <Login />
         <div className={messageBox}>
           <InputMessage onEnter={() => this.refresh()} />
           <MessageList messages={this.state.messages} />

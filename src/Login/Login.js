@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavigationBar from '../NavigationBar/NavigationBar';
 import {} from './Login.css';
 
 class Login extends Component {
@@ -28,6 +29,7 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <NavigationBar />
         <input
           value={this.state.inputValue}
           onChange={event => this.onChange(event)}

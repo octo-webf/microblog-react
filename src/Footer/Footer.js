@@ -7,8 +7,8 @@ const octoLink = { href: 'http://www.octo.com/fr', text: 'OCTO Technology' };
 
 const Footer = () => (
   <div className={footer}>
-    Développé avec ♥ par la
-    <FooterLink footerLink={webfLink} /> © 2017
+    Développé avec ♥ par la&nbsp;
+    <FooterLink footerLink={webfLink} /> © 2017&nbsp;
     <FooterLink footerLink={octoLink} />
   </div>
 );

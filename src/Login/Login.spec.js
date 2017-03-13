@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import NavigationBar from '../NavigationBar/NavigationBar';
 import Login from './Login';
 
 describe('Login component', () => {
@@ -9,6 +10,12 @@ describe('Login component', () => {
       const wrapper = shallow(<Login />);
 
       expect(wrapper.find('input')).to.have.length(1);
+    });
+
+    it('should render a nav bar', () => {
+      const wrapper = shallow(<Login />);
+
+      expect(wrapper.find(NavigationBar)).to.have.length(1);
     });
   });
 
