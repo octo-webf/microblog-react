@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import {} from './Login.css';
+import { login } from './Login.css';
 
 class Login extends Component {
   constructor(props) {
@@ -32,6 +32,7 @@ class Login extends Component {
         <NavigationBar />
         <input
           value={this.state.inputValue}
+          className={login}
           onChange={event => this.onChange(event)}
           onKeyPress={event => this.onEnter(event)}
         />

@@ -19,6 +19,9 @@ const NavigationBar = () => (
           <li className={navigationBarLi}>
             <NavigationLink icon="info-circle" url="/#about" label="A propos" />
           </li>
+          <li className={navigationBarLi}>
+            <NavigationLink icon="rocket" url="/#login" label="Login" />
+          </li>
         </ul>
       </div>
     </div>

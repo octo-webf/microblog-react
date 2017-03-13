@@ -10,7 +10,7 @@ describe('NavigationBar component', () => {
       it('should render 2 NavigationLinks', () => {
         const wrapper = shallow(<NavigationBar />);
 
-        expect(wrapper.find(NavigationLink)).to.have.length(2);
+        expect(wrapper.find(NavigationLink)).to.have.length(3);
       });
 
       it('should construct NavigationLink with home props', () => {
