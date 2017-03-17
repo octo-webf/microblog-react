@@ -1,38 +1,40 @@
-import React, {Component} from 'react';
-import InputMessage from '../InputMessage/InputMessage'
+import React, { Component } from 'react';
+import InputMessage from '../InputMessage/InputMessage';
+import Footer from '../Footer/Footer';
+import NavigationBar from '../NavigationBar/NavigationBar';
 import MessageList from '../MessageList/MessagesList';
-import {app, messageBox} from './App.css'
-import { fetchMessages } from '../ApiHelper/ApiHelper'
-import { Router, Route, Link } from 'react-router'
-
+import { app, messageBox } from './App.css';
+import { fetchMessages } from '../ApiHelper/ApiHelper';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = {messages: []}
+    this.state = {
+      messages: [],
+    };
   }
 
   componentWillMount() {
-    return this.refresh()
+    return this.refresh();
   }
 
   refresh() {
     return fetchMessages()
-      .then(messages => this.setState({messages}))
+      .then(messages => this.setState({ messages }));
   }
 
   render() {
     return (
       <div className={app}>
+        <NavigationBar />
         <div className={messageBox}>
-          {/*{this.children}*/}
-          <InputMessage onEnter={() => this.refresh()}/>
-          <MessageList messages={this.state.messages}/>
-          <Link to="/about">about</Link>
+          <InputMessage onEnter={() => this.refresh()} />
+          <MessageList messages={this.state.messages} />
+          <Footer />
         </div>
       </div>
-    )
+    );
   }
 }
 

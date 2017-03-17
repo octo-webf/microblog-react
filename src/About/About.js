@@ -1,7 +1,12 @@
 import React from 'react';
+import NavigationBar from '../NavigationBar/NavigationBar';
+import { about } from './About.css';
 
-const About = (props) => (
-    <div>TOTO</div>
+const About = () => (
+  <div>
+    <NavigationBar />
+    <h1 className={about}>About the page</h1>
+  </div>
 );
 
 export default About;

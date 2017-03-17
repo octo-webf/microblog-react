@@ -14,13 +14,13 @@ input {
   padding: 10px;
 }
 
-.inputMessage__content {
+.inputMessageContent {
   width: 100%;
   box-sizing : border-box;
   padding: 8px 10px;
   border: 1px solid #99CDE1;
 }
 
-.inputMessage__content:focus {
+.inputMessageContent:focus {
   border-color: #56b4ef;
 }

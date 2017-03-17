@@ -1,0 +1,45 @@
+.navigationLink {
+    text-align: center;
+    transition: all .15s ease-in-out;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 0 14px 0 4px;
+}
+
+.navigationLink {
+    justify-content: center;
+    height: 46px;
+    display: flex;
+}
+
+.navigationLinkIcon {
+    margin-left: 3px;
+    margin-top: 13px;
+    margin-right: 2px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.navigationLinkLink {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: #66757f;
+}
+
+.active {
+    border-bottom: 5px solid #0084b4;
+    height: 42px;
+}
+
+.navigationLink:hover {
+    border-bottom: 5px solid #0084b4;
+    height: 42px;
+    color: #0084B4;
+}
+
+.navigationLinkLabel {
+    margin-left: 3px;
+    margin-top: 17px;
+}
