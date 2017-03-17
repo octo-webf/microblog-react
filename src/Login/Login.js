@@ -1,44 +1,39 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import { login } from './Login.css';
+import LoginForm from '../LoginForm/LoginForm';
+import {
+  login,
+  loginHeader,
+  loginHeaderLogo,
+  loginBody,
+  loginBodyDescription,
+  loginBodyForm,
+  loginHeaderLogoImage,
+} from './Login.css';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { inputValue: '' };
-  }
+const imgLink = 'https://facebook.github.io/react/img/logo.svg';
+const altLink = 'react logo';
 
-  onEnter({ key }) {
-    if (key === 'Enter') {
-      window.localStorage.setItem('name', this.state.inputValue);
-      // postName({
-      //   author: 'John Smith',
-      //   content: this.state.inputValue
-      // })
-       // .then(() => {
-        //  this.props.onEnter()
-        // })
-      this.setState({ inputValue: '' });
-    }
-  }
-
-  onChange({ target: { value } }) {
-    this.setState({ inputValue: value });
-  }
-
-  render() {
-    return (
-      <div>
-        <NavigationBar />
-        <input
-          value={this.state.inputValue}
-          className={login}
-          onChange={event => this.onChange(event)}
-          onKeyPress={event => this.onEnter(event)}
-        />
+const Login = () => (
+  <div className={login}>
+    <NavigationBar />
+    <div className={loginHeader}>
+      <div className={loginHeaderLogo}>
+        <img alt={altLink} src={imgLink} className={loginHeaderLogoImage} />
       </div>
-    );
-  }
-}
+    </div>
+    <div className={loginBody}>
+      <p className={loginBodyDescription}>
+        Has autem provincias, quas Orontes ambiens amnis imosque pedes Cassii
+        montis illius celsi praetermeans funditur in Parthenium mare,
+        Gnaeus Pompeius superato Tigrane regnis
+        Armeniorum abstractas dicioni Romanae coniunxit.
+      </p>
+      <div className={loginBodyForm}>
+        <LoginForm />
+      </div>
+    </div>
+  </div>
+);
 
 export default Login;
