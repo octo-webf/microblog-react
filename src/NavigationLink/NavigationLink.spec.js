@@ -35,14 +35,14 @@ describe('NavigationLink component', () => {
       expect(wrapper.contains('active'));
     });
 
-    it.only('should not set active when isActive is not active', () => {
-      const navigationLink = {
+    it('should not set active when isActive is not active', () => {
+      const notActiveNavigationLink = {
         id: 'abcd',
         url: '/#',
         icon: 'info-circle',
         label: 'Accueil',
         isActive: '' };
-      const wrapper = shallow(<NavigationLink {...navigationLink} />);
+      const wrapper = shallow(<NavigationLink {...notActiveNavigationLink} />);
 
       expect(!wrapper.contains('active'));
       expect(wrapper.contains('navigationLinkLink'));
