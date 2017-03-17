@@ -1,5 +1,4 @@
 import React from 'react';
-import NavigationBar from '../NavigationBar/NavigationBar';
 import LoginForm from '../LoginForm/LoginForm';
 import {
   login,
@@ -16,7 +15,6 @@ const altLink = 'react logo';
 
 const Login = () => (
   <div className={login}>
-    <NavigationBar />
     <div className={loginHeader}>
       <div className={loginHeaderLogo}>
         <img alt={altLink} src={imgLink} className={loginHeaderLogoImage} />

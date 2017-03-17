@@ -37,7 +37,9 @@ class LoginForm extends Component {
             />
           </div>
           <div className={loginFormControl}>
-            <button type="submit" className={loginFormIdentify} />
+            <button type="submit" className={loginFormIdentify}>
+              S&apos;identifier
+            </button>
           </div>
         </form>
       </div>
