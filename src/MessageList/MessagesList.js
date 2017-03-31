@@ -2,7 +2,7 @@ import React from 'react';
 import Message from '../Message/Message';
 import { messages, messagesUl, messagesLi } from './MessagesList.css';
 
-const MessagesList = props => props.messages ?
+const MessagesList = props => ((props.messages) ?
     (
       <div className={messages}>
         <ul className={messagesUl}>
@@ -16,7 +16,7 @@ const MessagesList = props => props.messages ?
         </ul>
       </div>
     )
-    : null;
+    : null);
 
 
 MessagesList.propTypes = {
