@@ -1,16 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import createHashHistory from "history/lib/createHashHistory";
-import {Router, Route} from "react-router";
-import App from "./App/App";
-import About from "./About/About";
-import Login from "./Login/Login";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import RouteApp from './RouteApp/RouteApp';
 
-ReactDOM.render(
-  <Router history={createHashHistory()}>
-    <Route path="/" component={App}/>
-    <Route path="about" component={About}/>
-    <Route path="login" component={Login}/>
-  </Router>,
-  document.getElementById('root')
-);
+
+ReactDOM.render(<RouteApp/>, document.getElementById('root'));

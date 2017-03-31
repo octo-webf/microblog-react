@@ -27,6 +27,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.4.1",
     "fetch-mock": "5.8.1",
+    "history": "^3.0.1",
     "html-webpack-plugin": "^2.22.0",
     "ignore-styles": "5.0.1",
     "jsdom": "^9.6.0",
