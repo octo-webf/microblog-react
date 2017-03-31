@@ -4,18 +4,7 @@ import { Router, Route } from 'react-router';
 import App from '../App/App';
 import About from '../About/About';
 import Login from '../Login/Login';
-
-export function loggedIn() {
-  false;
-}
-
-function requireAuth(nextState, replace) {
-  if (!loggedIn()) {
-    replace({
-      pathname: '/login',
-    });
-  }
-}
+import { requireAuth } from './RouteService';
 
 export default () => (
   <Router history={createHashHistory()}>
