@@ -24,10 +24,11 @@ describe('MessageList component', () => {
     });
 
     describe('without props', () => {
-      it('should render nothing', () => {
+      it('should display a message no published message', () => {
         const wrapper = shallow(<MessageList />);
 
         expect(wrapper.find(Message)).to.have.length(0);
+        expect(wrapper.text()).to.equal('Aucun message n\'a été publié pour le moment.');
       });
     });
   });
