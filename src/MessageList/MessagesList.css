@@ -16,3 +16,10 @@
   padding: 0;
   border-bottom: 1px solid #e1e8ed;
 }
+
+.messageEmpty {
+  background-color: #ffffff;
+  padding: 10px;
+  border: 1px solid #e1e8ed;
+  border-top: none;
+}

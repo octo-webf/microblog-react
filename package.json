@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server --progress --inline --hot --quiet --colors --open",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.js --fix",
     "mocha": "mocha --reporter spec --compilers js:babel-register -r ignore-styles -r jsdom-global/register -r mock-local-storage --recursive 'src/**/*.spec.js'",
     "test": "npm run lint & npm run mocha",
     "watch": "npm run mocha -- --watch"
