@@ -26,6 +26,10 @@ const NavigationBar = () => (
             </li>
           </ul>
         </div>
+
+        <div>
+          <NavigationLink icon="power-off" url="/#logout" label="Déconnecter" isActive="" />
+        </div>
       </div>
     </div>
   </div>
