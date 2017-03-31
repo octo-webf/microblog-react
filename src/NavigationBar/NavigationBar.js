@@ -16,19 +16,19 @@ const NavigationBar = () => (
         <div className={navigationBarLinks}>
           <ul className={navigationBarUl}>
             <li className={navigationBarLi}>
-              <NavigationLink icon="home" url="/#" label="Accueil" isActive="active" />
+              <NavigationLink icon="home" url="/" label="Accueil" isActive="active" />
             </li>
             <li className={navigationBarLi}>
-              <NavigationLink icon="info-circle" url="/#about" label="À propos" isActive="" />
+              <NavigationLink icon="info-circle" url="/about" label="À propos" isActive="" />
             </li>
             <li className={navigationBarLi}>
-              <NavigationLink icon="rocket" url="/#login" label="Login" isActive="" />
+              <NavigationLink icon="rocket" url="/login" label="Login" isActive="" />
             </li>
           </ul>
         </div>
 
         <div>
-          <NavigationLink icon="power-off" url="/#logout" label="Déconnecter" isActive="" />
+          <NavigationLink icon="power-off" url="/logout" label="Déconnecter" isActive="" />
         </div>
       </div>
     </div>

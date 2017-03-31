@@ -7,6 +7,7 @@ import {
   active,
   navigationLinkLabel,
 } from './NavigationLink.css';
+import { Link } from 'react-router-dom';
 
 const NavigationLink = (props) => {
   const activeClass = ((props.isActive === 'active') ? ` ${active}` : '');
@@ -14,10 +15,10 @@ const NavigationLink = (props) => {
 
   return (
     <div className={navigationLink}>
-      <a href={props.url} className={classNameWithActive}>
+      <Link to={props.url} className={classNameWithActive}>
         <FontAwesome name={props.icon} size="2x" className={navigationLinkIcon} />
         <span className={navigationLinkLabel}>{ props.label }</span>
-      </a>
+      </Link>
     </div>
   );
 };

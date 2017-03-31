@@ -1,15 +1,16 @@
 import React from 'react';
-import createHashHistory from 'history/lib/createBrowserHistory';
-import { Router, Route } from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom';
 import App from '../App/App';
 import About from '../About/About';
 import Login from '../Login/Login';
-import { requireAuth } from './RouteService';
+import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute';
 
 export default () => (
-  <Router history={createHashHistory()}>
-    <Route path="/" component={App} onEnter={requireAuth} />
-    <Route path="about" component={About} />
-    <Route path="login" component={Login} />
-  </Router>
+  <BrowserRouter>
+    <div>
+      <Route exact path="/" render={() => <AuthenticatedRoute><App /></AuthenticatedRoute>} />
+      <Route path="/about" component={About}/>
+      <Route path="/login" component={Login}/>
+    </div>
+  </BrowserRouter>
 );
