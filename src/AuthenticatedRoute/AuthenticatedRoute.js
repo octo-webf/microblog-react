@@ -2,9 +2,13 @@ import React from 'react';
 import { Redirect } from 'react-router';
 
 function loggedIn() {
-  return false;
+  return true;
 }
 
-export default function AuthenticatedRoute({children}){
-  return loggedIn() ? (<Redirect to="/login"/>) : {children};
+export default function AuthenticatedRoute({ children }) {
+  return loggedIn() ? children : (<Redirect to="/login" />);
 }
+
+AuthenticatedRoute.propTypes = {
+  children: React.PropTypes.element.isRequired,
+};

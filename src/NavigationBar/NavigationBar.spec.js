@@ -17,7 +17,7 @@ describe('NavigationBar component', () => {
         const wrapper = shallow(<NavigationBar />);
 
         expect(wrapper.find(NavigationLink).at(0).prop('icon')).to.equal('home');
-        expect(wrapper.find(NavigationLink).at(0).prop('url')).to.equal('/#');
+        expect(wrapper.find(NavigationLink).at(0).prop('url')).to.equal('/');
         expect(wrapper.find(NavigationLink).at(0).prop('label')).to.equal('Accueil');
         expect(wrapper.find(NavigationLink).at(0).prop('isActive')).to.equal('active');
       });
@@ -26,7 +26,7 @@ describe('NavigationBar component', () => {
         const wrapper = shallow(<NavigationBar />);
 
         expect(wrapper.find(NavigationLink).at(1).prop('icon')).to.equal('info-circle');
-        expect(wrapper.find(NavigationLink).at(1).prop('url')).to.equal('/#about');
+        expect(wrapper.find(NavigationLink).at(1).prop('url')).to.equal('/about');
         expect(wrapper.find(NavigationLink).at(1).prop('label')).to.equal('À propos');
         expect(wrapper.find(NavigationLink).at(1).prop('isActive')).to.equal('');
       });
@@ -35,7 +35,7 @@ describe('NavigationBar component', () => {
         const wrapper = shallow(<NavigationBar />);
 
         expect(wrapper.find(NavigationLink).at(2).prop('icon')).to.equal('rocket');
-        expect(wrapper.find(NavigationLink).at(2).prop('url')).to.equal('/#login');
+        expect(wrapper.find(NavigationLink).at(2).prop('url')).to.equal('/login');
         expect(wrapper.find(NavigationLink).at(2).prop('label')).to.equal('Login');
         expect(wrapper.find(NavigationLink).at(2).prop('isActive')).to.equal('');
       });
@@ -44,7 +44,7 @@ describe('NavigationBar component', () => {
         const wrapper = shallow(<NavigationBar />);
 
         expect(wrapper.find(NavigationLink).at(3).prop('icon')).to.equal('power-off');
-        expect(wrapper.find(NavigationLink).at(3).prop('url')).to.equal('/#logout');
+        expect(wrapper.find(NavigationLink).at(3).prop('url')).to.equal('/logout');
         expect(wrapper.find(NavigationLink).at(3).prop('label')).to.equal('Déconnecter');
         expect(wrapper.find(NavigationLink).at(3).prop('isActive')).to.equal('');
       });

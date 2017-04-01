@@ -1,5 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
+import { Link } from 'react-router-dom';
 import {
   navigationLink,
   navigationLinkIcon,
@@ -7,7 +8,6 @@ import {
   active,
   navigationLinkLabel,
 } from './NavigationLink.css';
-import { Link } from 'react-router-dom';
 
 const NavigationLink = (props) => {
   const activeClass = ((props.isActive === 'active') ? ` ${active}` : '');
@@ -17,7 +17,7 @@ const NavigationLink = (props) => {
     <div className={navigationLink}>
       <Link to={props.url} className={classNameWithActive}>
         <FontAwesome name={props.icon} size="2x" className={navigationLinkIcon} />
-        <span className={navigationLinkLabel}>{ props.label }</span>
+        <span className={`${navigationLinkLabel} navLinkLabel`}>{ props.label }</span>
       </Link>
     </div>
   );
