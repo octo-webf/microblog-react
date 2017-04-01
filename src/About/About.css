@@ -1,6 +1,9 @@
-.about {
+.app {
   display: flex;
   justify-content: center;
-  padding: 56px 0;
 }
 
+.container {
+  width: 600px;
+  padding: 56px 0;
+}

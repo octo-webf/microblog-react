@@ -8,8 +8,8 @@ const MessagesList = props => ((props.messages && props.messages.length) ?
       <ul className={messagesUl}>
         { props.messages.reverse()
           .map(message =>
-            <li className={messagesLi}>
-              <Message key={message.id} message={message} />
+            <li key={message.id} className={messagesLi}>
+              <Message message={message} />
             </li>,
           )
         }

@@ -8,7 +8,7 @@ describe('About component', () => {
   it('should contain About', () => {
     const wrapper = shallow(<About />);
 
-    expect(wrapper.text()).to.contain('About the page');
+    expect(wrapper.text()).to.contain('About');
   });
 
   it('should render NavigationBar', () => {

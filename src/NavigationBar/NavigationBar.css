@@ -13,6 +13,12 @@
     justify-content: center;
 }
 
+.navigationBarInnerContainer {
+    width: 600px;
+    justify-content: space-between;
+    display: flex;
+}
+
 .navigationBarUl {
     padding: 0;
     margin: 0;
@@ -26,10 +32,4 @@
     height: 46px;
     color: #66757f;
     overflow: hidden;
-}
-
-.navigationBarInnerContainer {
-    width: 600px;
-    justify-content: space-between;
-    display: flex;
 }

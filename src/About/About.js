@@ -1,12 +1,14 @@
 import React from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import { about } from './About.css';
+import { app, container } from './About.css';
 
 const About = () =>
   (
-    <div>
+    <div className={app}>
       <NavigationBar />
-      <h1 className={about}>About the page</h1>
+      <div className={container}>
+        <h1>About</h1>
+      </div>
     </div>
   );
 
