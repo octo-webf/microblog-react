@@ -8,3 +8,4 @@ dist
 yarn.lock
 public
 npm-debug.log*
+*.iml
