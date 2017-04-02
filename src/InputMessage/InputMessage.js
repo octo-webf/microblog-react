@@ -29,7 +29,7 @@ class InputMessage extends Component {
     return (
       <div className={inputMessage}>
         <input
-          className={inputMessageContent}
+          className={[inputMessageContent, 'message-input__content'].join(' ')}
           placeholder="Quoi de neuf ?"
           value={this.state.inputValue}
           onChange={event => this.onChange(event)}

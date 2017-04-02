@@ -42,11 +42,19 @@ describe('NavigationLink component', () => {
         url: '/#',
         icon: 'info-circle',
         label: 'Accueil',
-        isActive: '' };
+        isActive: '',
+      };
       const wrapper = shallow(<NavigationLink {...notActiveNavigationLink} />);
 
       expect(!wrapper.contains('active'));
       expect(wrapper.contains('propsLink'));
+    });
+
+    it('should render a logout element with the right className', () => {
+      const logout = { icon: 'power-off' };
+      const wrapper = shallow(<NavigationLink {...logout} />);
+
+      expect(wrapper.find(Link).hasClass('navigation-bar__link--logout')).to.be.true;
     });
   });
 });

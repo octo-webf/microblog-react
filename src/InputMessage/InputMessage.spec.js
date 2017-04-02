@@ -12,6 +12,11 @@ describe('InputMessage component', () => {
 
       expect(wrapper.find('input')).to.have.length(1);
     });
+
+    it('should input element have the right className', () => {
+      const wrapper = shallow(<InputMessage />);
+      expect(wrapper.find('input').hasClass('message-input__content')).to.be.true;
+    });
   });
 
   describe('on change', () => {

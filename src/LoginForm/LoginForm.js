@@ -31,13 +31,13 @@ class LoginForm extends Component {
           <div className={loginFormControl}>
             <input
               value={this.state.inputValue}
-              className={loginFormUsername}
+              className={[loginFormUsername, 'login-form__username'].join(' ')}
               onChange={event => this.onChange(event)}
               onKeyPress={event => this.onEnter(event)}
             />
           </div>
           <div className={loginFormControl}>
-            <button type="submit" className={loginFormIdentify}>
+            <button type="submit" className={[loginFormIdentify, 'login-form__identify'].join(' ')}>
               S&apos;identifier
             </button>
           </div>
