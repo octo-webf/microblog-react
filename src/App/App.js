@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className={app}>
-        <NavigationBar />
+        <NavigationBar active="home" />
         <div className={messageBox}>
           <InputMessage onEnter={() => this.refresh()} />
           <MessageList messages={this.state.messages} />

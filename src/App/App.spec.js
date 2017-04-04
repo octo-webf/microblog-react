@@ -30,10 +30,11 @@ describe('App component', () => {
     expect(wrapper.find(InputMessage)).to.have.length(1);
   });
 
-  it('should render NavigationBar', () => {
+  it('should render NavigationBar with props active on home', () => {
     ApiHelper.fetchMessages.returns(Promise.resolve());
     const wrapper = shallow(<App />);
     expect(wrapper.find(NavigationBar)).to.have.length(1);
+    expect(wrapper.find(NavigationBar).at(0).prop('active')).to.equal('home');
   });
 
   it('should render Footer', () => {

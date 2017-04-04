@@ -16,5 +16,6 @@ describe('About component', () => {
 
     const navigationBar = wrapper.find(NavigationBar);
     expect(navigationBar).to.have.length(1);
+    expect(wrapper.find(NavigationBar).at(0).prop('active')).to.equal('about');
   });
 });
