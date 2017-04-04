@@ -10,12 +10,17 @@ import {
 } from './NavigationLink.css';
 
 const NavigationLink = (props) => {
-  const activeClass = ((props.isActive === 'active') ? ` ${active}` : '');
-  const classNameWithActive = `${navigationLinkLink} ${activeClass}`;
+  const linkClassNames = [navigationLinkLink];
+  if (props.isActive) {
+    linkClassNames.push(active);
+  }
+  if (props.icon === 'power-off') {
+    linkClassNames.push('navigation-bar__link--logout');
+  }
 
   return (
     <div className={navigationLink}>
-      <Link to={props.url} className={classNameWithActive}>
+      <Link to={props.url} className={linkClassNames.filter(Boolean).join(' ')}>
         <FontAwesome name={props.icon} size="2x" className={navigationLinkIcon} />
         <span className={`${navigationLinkLabel} navLinkLabel`}>{ props.label }</span>
       </Link>

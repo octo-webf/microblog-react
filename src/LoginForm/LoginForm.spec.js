@@ -11,10 +11,21 @@ describe('Login component', () => {
       expect(wrapper.find('input')).to.have.length(1);
     });
 
+    it('should input element have the right className', () => {
+      const wrapper = shallow(<Login />);
+      expect(wrapper.find('input').hasClass('login-form__username')).to.be.true;
+    });
+
     it('should render a button', () => {
       const wrapper = shallow(<Login />);
 
       expect(wrapper.find('button')).to.have.length(1);
+    });
+
+    it('should button element have the right className', () => {
+      const wrapper = shallow(<Login />);
+
+      expect(wrapper.find('button').hasClass('login-form__identify')).to.be.true;
     });
 
     describe('on change', () => {
