@@ -75,5 +75,20 @@ describe('Login component', () => {
         });
       });
     });
+
+    describe('click on button', () => {
+      it('should authenticate with the name', () => {
+        // given
+        const wrapper = shallow(<Login />);
+        wrapper.setState({ inputValue: 'My name' });
+        const button = wrapper.find('button');
+
+        // when
+        button.simulate('click');
+
+        // then
+        expect(window.localStorage.getItem('name')).to.equal('My name');
+      });
+    });
   });
 });

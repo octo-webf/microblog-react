@@ -65,6 +65,8 @@ describe('InputMessage component', () => {
         wrapper.setState({ inputValue: 'My new message' });
         const input = wrapper.find('input');
 
+        window.localStorage.setItem('name', 'John Smith');
+
         // when
         input.simulate('keyPress', { key: 'Enter' });
 

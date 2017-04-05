@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router';
 
 function loggedIn() {
-  return true;
+  return window.localStorage.getItem('name');
 }
 
 export default function AuthenticatedRoute({ children }) {

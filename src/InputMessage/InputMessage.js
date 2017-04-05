@@ -11,7 +11,7 @@ class InputMessage extends Component {
   onEnter({ key }) {
     if (key === 'Enter') {
       postMessage({
-        author: 'John Smith',
+        author: window.localStorage.getItem('name'),
         content: this.state.inputValue,
       })
         .then(() => {

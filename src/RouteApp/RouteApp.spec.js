@@ -10,5 +10,6 @@ describe('RouteApp', () => {
     expect(wrapper.find(Route).at(0).prop('path')).to.equal('/');
     expect(wrapper.find(Route).at(1).prop('path')).to.equal('/about');
     expect(wrapper.find(Route).at(2).prop('path')).to.equal('/login');
+    expect(wrapper.find(Route).at(3).prop('path')).to.equal('/logout');
   });
 });

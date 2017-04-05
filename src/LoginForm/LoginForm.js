@@ -15,13 +15,17 @@ class LoginForm extends Component {
 
   onEnter({ key }) {
     if (key === 'Enter') {
-      window.localStorage.setItem('name', this.state.inputValue);
-      this.setState({ inputValue: '' });
+      this.authenticate();
     }
   }
 
   onChange({ target: { value } }) {
     this.setState({ inputValue: value });
+  }
+
+  authenticate() {
+    window.localStorage.setItem('name', this.state.inputValue);
+    this.setState({ inputValue: '' });
   }
 
   render() {
@@ -34,10 +38,11 @@ class LoginForm extends Component {
               className={[loginFormUsername, 'login-form__username'].join(' ')}
               onChange={event => this.onChange(event)}
               onKeyPress={event => this.onEnter(event)}
+              placeholder="Votre nom d'utilisateur"
             />
           </div>
           <div className={loginFormControl}>
-            <button type="submit" className={[loginFormIdentify, 'login-form__identify'].join(' ')}>
+            <button type="button" onClick={() => this.authenticate()} className={[loginFormIdentify, 'login-form__identify'].join(' ')}>
               S&apos;identifier
             </button>
           </div>
