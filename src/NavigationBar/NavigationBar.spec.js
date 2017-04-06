@@ -4,8 +4,8 @@ import { shallow } from 'enzyme';
 import NavigationBar from './NavigationBar';
 import NavigationLink from '../NavigationLink/NavigationLink';
 
-const homeActiveProps = { active: 'home' };
-const aboutActiveProps = { active: 'about' };
+const homeActiveProps = { onHomepage: 'true' };
+const aboutActiveProps = { onHomepage: 'false' };
 
 describe('NavigationBar component', () => {
   describe('on first render', () => {

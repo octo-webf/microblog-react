@@ -5,7 +5,6 @@ import sinon from 'sinon';
 import App from './App';
 import Footer from '../Footer/Footer';
 import MessageList from '../MessageList/MessagesList';
-import NavigationBar from '../NavigationBar/NavigationBar';
 import InputMessage from '../InputMessage/InputMessage';
 import * as ApiHelper from '../ApiHelper/ApiHelper';
 
@@ -28,13 +27,6 @@ describe('App component', () => {
     ApiHelper.fetchMessages.returns(Promise.resolve());
     const wrapper = shallow(<App />);
     expect(wrapper.find(InputMessage)).to.have.length(1);
-  });
-
-  it('should render NavigationBar with props active on home', () => {
-    ApiHelper.fetchMessages.returns(Promise.resolve());
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(NavigationBar)).to.have.length(1);
-    expect(wrapper.find(NavigationBar).at(0).prop('active')).to.equal('home');
   });
 
   it('should render Footer', () => {

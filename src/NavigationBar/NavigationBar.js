@@ -8,8 +8,8 @@ import {
 } from './NavigationBar.css';
 
 const NavigationBar = (props) => {
-  const homeActive = ((props.active === 'home') ? 'active' : '');
-  const aboutActive = ((props.active === 'about') ? 'active' : '');
+  const homeActive = ((props.onHomepage === 'true') ? 'active' : '');
+  const aboutActive = ((props.onHomepage === 'true') ? '' : 'active');
 
   return (
     <div className={navigationBar}>
@@ -38,7 +38,7 @@ const NavigationBar = (props) => {
 };
 
 NavigationBar.propTypes = {
-  active: React.PropTypes.string.isRequired,
+  onHomepage: React.PropTypes.string.isRequired,
 };
 
 export default NavigationBar;
