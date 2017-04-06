@@ -1,27 +1,18 @@
-# Coding session novembre
+# microblog-react
 
-## Installation
+[demo](https://octo-web-front-end-tribe.github.io/microblog-react)
 
-Dépendances :
- * [Node.js] v≥6.
+**Welcome on board**
+## getting started
+1. use [Node.js] v≥6
+2. install all dependencies thanks to ```yarn```
+3. start dev server ```yarn start```
 
-```sh
-yarn install
-```
-
-## Lancer le site
-
-L'application est une application [React] dans le dossier `src`.
-
-```
-yarn start
-```
-
-## Lancer les tests
-
-```
-yarn test
-```
-
-[Node.js]: https://nodejs.org/en/
-[React]: https://facebook.github.io/react/
+## available tasks
+### dev
+- tdd ```yarn watch```
+- lint ```yarn lint```
+- test and lint ```yarn test```
+- build locally ```yarn build```
+### deploy
+- to githubpages ```sh yarn deploy```
