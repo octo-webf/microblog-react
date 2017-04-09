@@ -2,54 +2,50 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const config = {
-  context: __dirname,
-
-  entry: [
-    'webpack-dev-server/client?http://127.0.0.1:8080',
-    './src/index.js',
-  ],
-
+/*
+ resolve: {
+ modules: [path.resolve(__dirname, './src'), 'node_modules']
+ },
+ */
+module.exports = {
+  context: path.resolve(__dirname, './src'),
+  entry: {
+    app: './index.js',
+  },
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'public'),
+    path: path.resolve(__dirname, './dist'),
+    filename: '[name].bundle.js'
   },
-
-  devtool: 'source-map',
-
-  resolve: {
-    extensions: ['', '.js'],
-  },
-
   devServer: {
-    contentBase: './public',
+    contentBase: path.resolve(__dirname, './src'),  // New
   },
-
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel',
+        exclude: [/node_modules/],
+        use: [{
+          loader: 'babel-loader',
+          options: { presets: ['es2015'] }
+        }],
       },
-
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        loaders: [
-          'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
-        ],
+        use: ['style-loader', {
+          loader: 'css-loader',
+          options: { modules: true }
+        }],
       },
     ],
   },
-
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'commons',
+      filename: 'commons.js',
+      minChunks: 2,
     }),
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
   ],
 };
-
-module.exports = config;
