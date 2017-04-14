@@ -1,7 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router';
+import { logout } from '../AuthenticationService/AuthenticationService';
 
 export default function Logout() {
-  window.localStorage.removeItem('name');
+  logout();
   return (<Redirect to="/login" />);
 }
