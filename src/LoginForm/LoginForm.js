@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import { authenticate } from '../AuthenticationService/AuthenticationService';
+
 import {
   loginForm,
   loginFormForm,
@@ -28,7 +30,7 @@ class LoginForm extends Component {
   }
 
   authenticate() {
-    window.localStorage.setItem('name', this.state.inputValue);
+    authenticate();
     this.setState({ isAuthenticated: true });
   }
 

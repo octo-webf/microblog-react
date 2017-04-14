@@ -1,8 +1,10 @@
 import React from 'react';
+import sinon from 'sinon';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Redirect } from 'react-router';
 import Login from './LoginForm';
+import * as AuthenticationService from '../AuthenticationService/AuthenticationService';
 
 describe('Login component', () => {
   describe('on render', () => {
@@ -72,6 +74,17 @@ describe('Login component', () => {
     });
 
     describe('with enter', () => {
+      let stubAuthenticate;
+
+      beforeEach(() => {
+        window.localStorage.clear();
+        stubAuthenticate = sinon.stub(AuthenticationService, 'authenticate');
+      });
+
+      afterEach(() => {
+        stubAuthenticate.restore();
+      });
+
       it('should save name inside local Storage with value', () => {
         // given
         const wrapper = shallow(<Login />);
@@ -82,13 +95,24 @@ describe('Login component', () => {
         input.simulate('keyPress', { key: 'Enter' });
 
         // then
-        expect(window.localStorage.getItem('name')).to.equal('My name');
+        expect(stubAuthenticate.calledOnce).to.be.true;
         expect(wrapper.state('isAuthenticated')).to.be.true;
       });
     });
   });
 
   describe('click on button', () => {
+    let stubAuthenticate;
+
+    beforeEach(() => {
+      window.localStorage.clear();
+      stubAuthenticate = sinon.stub(AuthenticationService, 'authenticate');
+    });
+
+    afterEach(() => {
+      stubAuthenticate.restore();
+    });
+
     it('should authenticate with the name', () => {
       // given
       const wrapper = shallow(<Login />);
@@ -99,7 +123,7 @@ describe('Login component', () => {
       button.simulate('click');
 
       // then
-      expect(window.localStorage.getItem('name')).to.equal('My name');
+      expect(stubAuthenticate.calledOnce).to.be.true;
       expect(wrapper.state('isAuthenticated')).to.be.true;
     });
   });
