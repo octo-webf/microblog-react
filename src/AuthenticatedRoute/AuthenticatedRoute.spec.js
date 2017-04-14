@@ -14,8 +14,6 @@ describe('AuthenticatedRoute component', () => {
 
     describe('not logged in', () => {
       it('should redirect to login', () => {
-        // given
-
         // when
         const wrapper = shallow(<AuthenticatedRoute><MockedSubComponent /></AuthenticatedRoute>);
 

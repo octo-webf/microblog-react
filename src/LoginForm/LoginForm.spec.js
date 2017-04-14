@@ -83,6 +83,7 @@ describe('Login component', () => {
 
         // then
         expect(window.localStorage.getItem('name')).to.equal('My name');
+        expect(wrapper.state('isAuthenticated')).to.be.true;
       });
     });
   });
@@ -99,6 +100,7 @@ describe('Login component', () => {
 
       // then
       expect(window.localStorage.getItem('name')).to.equal('My name');
+      expect(wrapper.state('isAuthenticated')).to.be.true;
     });
   });
 });

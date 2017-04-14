@@ -29,12 +29,12 @@ class LoginForm extends Component {
 
   authenticate() {
     window.localStorage.setItem('name', this.state.inputValue);
-    this.setState({ inputValue: '' });
+    this.setState({ isAuthenticated: true });
   }
 
   render() {
     return this.state.isAuthenticated ?
-      (<Redirect to='/' />)
+      (<Redirect to="/" />)
       : (
         <div className={loginForm}>
           <form className={loginFormForm}>
