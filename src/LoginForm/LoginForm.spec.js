@@ -1,6 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import { Redirect } from 'react-router';
 import Login from './LoginForm';
 
 describe('Login component', () => {
@@ -28,67 +29,76 @@ describe('Login component', () => {
       expect(wrapper.find('button').hasClass('login-form__identify')).to.be.true;
     });
 
-    describe('on change', () => {
-      it('should set state with input value', () => {
+    it('should redirect to another page when authenticated', () => {
+      const wrapper = shallow(<Login />);
+      wrapper.setState({ isAuthenticated: true });
+
+      const redirectComponent = wrapper.find(Redirect);
+      expect(redirectComponent).to.have.length(1);
+      expect(redirectComponent.props().to).to.equal('/');
+    });
+  });
+
+  describe('on change', () => {
+    it('should set state with input value', () => {
+      // given
+      const wrapper = shallow(<Login />);
+      const input = wrapper.find('input');
+
+      // when
+      input.simulate('change', { target: { value: 'toto' } });
+
+      // then
+      expect(wrapper.state('inputValue')).to.equal('toto');
+    });
+  });
+
+  describe('on key press', () => {
+    describe('with a key different than enter', () => {
+      beforeEach(() => {
+        window.localStorage.clear();
+      });
+
+      it('should do nothing', () => {
         // given
-        const wrapper = shallow(<Login />);
-        const input = wrapper.find('input');
+        const input = shallow(<Login />).find('input');
 
         // when
-        input.simulate('change', { target: { value: 'toto' } });
+        input.simulate('keyPress', { keyCode: 'notEnter' });
 
         // then
-        expect(wrapper.state('inputValue')).to.equal('toto');
+        expect(window.localStorage.length).to.equal(0);
       });
     });
 
-    describe('on key press', () => {
-      describe('with a key different than enter', () => {
-        beforeEach(() => {
-          window.localStorage.clear();
-        });
-
-        it('should do nothing', () => {
-          // given
-          const input = shallow(<Login />).find('input');
-
-          // when
-          input.simulate('keyPress', { keyCode: 'notEnter' });
-
-          // then
-          expect(window.localStorage.length).to.equal(0);
-        });
-      });
-
-      describe('with enter', () => {
-        it('should save name inside local Storage with value', () => {
-          // given
-          const wrapper = shallow(<Login />);
-          wrapper.setState({ inputValue: 'My name' });
-          const input = wrapper.find('input');
-
-          // when
-          input.simulate('keyPress', { key: 'Enter' });
-
-          // then
-          expect(window.localStorage.getItem('name')).to.equal('My name');
-        });
-      });
-    });
-
-    describe('click on button', () => {
-      it('should authenticate with the name', () => {
+    describe('with enter', () => {
+      it('should save name inside local Storage with value', () => {
         // given
         const wrapper = shallow(<Login />);
         wrapper.setState({ inputValue: 'My name' });
-        const button = wrapper.find('button');
+        const input = wrapper.find('input');
 
         // when
-        button.simulate('click');
+        input.simulate('keyPress', { key: 'Enter' });
 
         // then
         expect(window.localStorage.getItem('name')).to.equal('My name');
       });
+    });
+  });
+
+  describe('click on button', () => {
+    it('should authenticate with the name', () => {
+      // given
+      const wrapper = shallow(<Login />);
+      wrapper.setState({ inputValue: 'My name' });
+      const button = wrapper.find('button');
+
+      // when
+      button.simulate('click');
+
+      // then
+      expect(window.localStorage.getItem('name')).to.equal('My name');
     });
   });
 });
