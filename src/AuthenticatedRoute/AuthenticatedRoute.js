@@ -1,12 +1,9 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-
-function loggedIn() {
-  return window.localStorage.getItem('name');
-}
+import { isAuthenticated } from '../AuthenticationService/AuthenticationService';
 
 export default function AuthenticatedRoute({ children }) {
-  return loggedIn() ? children : (<Redirect to="/login" />);
+  return isAuthenticated() ? children : (<Redirect to="/login" />);
 }
 
 AuthenticatedRoute.propTypes = {

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
+import { authenticate } from '../AuthenticationService/AuthenticationService';
+
 import {
   loginForm,
   loginFormForm,
@@ -10,7 +13,10 @@ import {
 class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { inputValue: '' };
+    this.state = {
+      inputValue: '',
+      isAuthenticated: false,
+    };
   }
 
   onEnter({ key }) {
@@ -24,30 +30,32 @@ class LoginForm extends Component {
   }
 
   authenticate() {
-    window.localStorage.setItem('name', this.state.inputValue);
-    this.setState({ inputValue: '' });
+    authenticate(this.state.inputValue);
+    this.setState({ isAuthenticated: true });
   }
 
   render() {
-    return (
-      <div className={loginForm}>
-        <form className={loginFormForm}>
-          <div className={loginFormControl}>
-            <input
-              value={this.state.inputValue}
-              className={[loginFormUsername, 'login-form__username'].join(' ')}
-              onChange={event => this.onChange(event)}
-              onKeyPress={event => this.onEnter(event)}
-              placeholder="Votre nom d'utilisateur"
-            />
-          </div>
-          <div className={loginFormControl}>
-            <button type="button" onClick={() => this.authenticate()} className={[loginFormIdentify, 'login-form__identify'].join(' ')}>
+    return this.state.isAuthenticated ?
+      (<Redirect to="/" />)
+      : (
+        <div className={loginForm}>
+          <form className={loginFormForm}>
+            <div className={loginFormControl}>
+              <input
+                value={this.state.inputValue}
+                className={[loginFormUsername, 'login-form__username'].join(' ')}
+                onChange={event => this.onChange(event)}
+                onKeyPress={event => this.onEnter(event)}
+                placeholder="Votre nom d'utilisateur"
+              />
+            </div>
+            <div className={loginFormControl}>
+              <button type="button" onClick={() => this.authenticate()} className={[loginFormIdentify, 'login-form__identify'].join(' ')}>
               S&apos;identifier
             </button>
-          </div>
-        </form>
-      </div>
+            </div>
+          </form>
+        </div>
     );
   }
 }

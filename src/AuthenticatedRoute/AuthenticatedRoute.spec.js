@@ -2,20 +2,28 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { Redirect } from 'react-router';
+import sinon from 'sinon';
 import AuthenticatedRoute from './AuthenticatedRoute';
+import * as AuthenticationService from '../AuthenticationService/AuthenticationService';
 
 const MockedSubComponent = () => <div />;
 
 describe('AuthenticatedRoute component', () => {
   describe('on render', () => {
-    beforeEach(() => {
-      window.localStorage.clear();
-    });
+    let stubIsAuthenticated;
 
     describe('not logged in', () => {
-      it('should redirect to login', () => {
-        // given
+      beforeEach(() => {
+        window.localStorage.clear();
+        stubIsAuthenticated = sinon.stub(AuthenticationService, 'isAuthenticated')
+          .returns(false);
+      });
 
+      afterEach(() => {
+        stubIsAuthenticated.restore();
+      });
+
+      it('should redirect to login', () => {
         // when
         const wrapper = shallow(<AuthenticatedRoute><MockedSubComponent /></AuthenticatedRoute>);
 
@@ -27,6 +35,16 @@ describe('AuthenticatedRoute component', () => {
     });
 
     describe('logged in', () => {
+      beforeEach(() => {
+        window.localStorage.clear();
+        stubIsAuthenticated = sinon.stub(AuthenticationService, 'isAuthenticated')
+          .returns(true);
+      });
+
+      afterEach(() => {
+        stubIsAuthenticated.restore();
+      });
+
       it('should display children', () => {
         // given
         window.localStorage.setItem('name', 'fake name');
