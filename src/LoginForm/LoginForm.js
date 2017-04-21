@@ -30,7 +30,7 @@ class LoginForm extends Component {
   }
 
   authenticate() {
-    authenticate();
+    authenticate(this.state.inputValue);
     this.setState({ isAuthenticated: true });
   }
 

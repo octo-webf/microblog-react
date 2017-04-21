@@ -96,6 +96,7 @@ describe('Login component', () => {
 
         // then
         expect(stubAuthenticate.calledOnce).to.be.true;
+        expect(stubAuthenticate.calledWith('My name')).to.be.true
         expect(wrapper.state('isAuthenticated')).to.be.true;
       });
     });
